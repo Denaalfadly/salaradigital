@@ -1,16 +1,1455 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Inventory</title>
-    <style>
-        body, html { margin: 0; padding: 0; height: 100vh; overflow: hidden; }
-        iframe { width: 100%; height: 100%; border: none; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="google0429c941e93bf05c" />
+  <title>Salara Net · Internet RT/RW Net</title>
+  <meta name="description" content="Salara Net menyediakan layanan internet cepat dan stabil untuk rumah, usaha, dan komunitas. Paket fleksibel, dukungan 24 jam." />
+  <meta name="keywords" content="wifi rt rw net, isp lokal, internet murah, salara net, wifi kampung" />
+  <link rel="canonical" href="https://salaranet.com" />
+  <meta property="og:title" content="Salara Net · Internet Cepat untuk Semua" />
+  <meta property="og:description" content="Nikmati koneksi internet stabil dengan harga terjangkau. Salara Net, pilihan utama WiFi RT/RW Net." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', -apple-system, sans-serif;
+      background: #fefcf5;
+      color: #2d2a24;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 34px;
+      border-radius: 80px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: #ffffff;
+      color: #2d2a24;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      letter-spacing: 0.3px;
+    }
+
+    .btn-primary {
+      background: #c44536;
+      color: white;
+      box-shadow: 0 8px 24px rgba(196, 69, 54, 0.2);
+    }
+    .btn-primary:hover {
+      background: #a83529;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(196, 69, 54, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #d6cec0;
+      color: #4a433a;
+    }
+    .btn-outline:hover {
+      border-color: #c44536;
+      background: rgba(196, 69, 54, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .btn-accent {
+      background: #d96c4a;
+      color: white;
+      box-shadow: 0 8px 24px rgba(217, 108, 74, 0.2);
+    }
+    .btn-accent:hover {
+      background: #c45a3a;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(217, 108, 74, 0.3);
+    }
+
+    .btn-sm {
+      padding: 10px 22px;
+      font-size: 0.85rem;
+    }
+
+    .btn-wa {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.2);
+    }
+    .btn-wa:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(37, 211, 102, 0.3);
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: rgba(254, 252, 245, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+      color: #2d2a24;
+    }
+
+    .logo i {
+      color: #c44536;
+      font-size: 1.8rem;
+      transform: rotate(-20deg);
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, #2d2a24 40%, #c44536);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .nav a {
+      font-weight: 500;
+      color: #5a5146;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      position: relative;
+      font-family: 'Quicksand', sans-serif;
+    }
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2.5px;
+      background: #c44536;
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+    .nav a:hover {
+      color: #2d2a24;
+    }
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav .btn {
+      padding: 10px 24px;
+      font-size: 0.85rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #2d2a24;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 80px 0 100px;
+      background: #fefcf5;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      right: -8%;
+      top: -15%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(196, 69, 54, 0.04) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '✦';
+      position: absolute;
+      left: 5%;
+      bottom: 10%;
+      font-size: 5rem;
+      color: rgba(196, 69, 54, 0.04);
+      transform: rotate(12deg);
+      pointer-events: none;
+    }
+
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.8rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: #2d2a24;
+    }
+
+    .hero-text h1 .highlight {
+      color: #c44536;
+      position: relative;
+    }
+    .hero-text h1 .highlight::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 4px;
+      width: 100%;
+      height: 8px;
+      background: rgba(196, 69, 54, 0.12);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    .hero-text p {
+      font-size: 1.15rem;
+      color: #6b6256;
+      margin: 24px 0 36px;
+      max-width: 460px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1.5px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .stat-item .number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #2d2a24;
+      letter-spacing: -0.5px;
+    }
+    .stat-item .label {
+      font-size: 0.85rem;
+      color: #7a7064;
+      font-weight: 500;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 40px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.02);
+      position: relative;
+    }
+
+    .hero-card::before {
+      content: '✨';
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      font-size: 1.8rem;
+    }
+
+    .hero-card .price-big {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: #2d2a24;
+      letter-spacing: -1px;
+    }
+    .hero-card .price-big small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #7a7064;
+    }
+    .hero-card ul {
+      margin: 24px 0 32px;
+    }
+    .hero-card ul li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f5f0ea;
+      color: #4a433a;
+      font-weight: 500;
+    }
+    .hero-card ul li i {
+      color: #c44536;
+      width: 20px;
+      font-size: 1.1rem;
+    }
+
+    /* ===== PAKET ===== */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px;
+    }
+
+    .section-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #2d2a24;
+    }
+    .section-header p {
+      color: #6b6256;
+      font-size: 1.1rem;
+      margin-top: 12px;
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .package-card {
+      background: white;
+      border-radius: 32px;
+      padding: 36px 28px;
+      border: 1px solid rgba(0, 0, 0, 0.02);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.01);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .package-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.04);
+      border-color: rgba(196, 69, 54, 0.08);
+    }
+
+    .package-card.popular {
+      border: 1.5px solid #c44536;
+      background: #fffcf9;
+    }
+
+    .badge {
+      background: #c44536;
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 40px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      position: absolute;
+      top: -10px;
+      right: 24px;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .package-card .icon {
+      font-size: 2.2rem;
+      color: #c44536;
+      background: rgba(196, 69, 54, 0.06);
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .package-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #2d2a24;
+    }
+
+    .package-card .price {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin: 8px 0 4px;
+      color: #2d2a24;
+      letter-spacing: -0.5px;
+    }
+    .package-card .price small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #7a7064;
+    }
+
+    .package-card .desc {
+      color: #6b6256;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .package-card ul li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      color: #4a433a;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #f5f0ea;
+      font-weight: 500;
+    }
+    .package-card ul li i {
+      color: #c44536;
+      width: 18px;
+      font-size: 0.9rem;
+    }
+
+    .package-card .btn {
+      width: 100%;
+      justify-content: center;
+      margin-top: 16px;
+    }
+
+    /* ===== FITUR ===== */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .feature-item {
+      background: white;
+      padding: 32px 24px;
+      border-radius: 28px;
+      border: 1px solid rgba(0, 0, 0, 0.02);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      border-color: rgba(196, 69, 54, 0.06);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.02);
+    }
+
+    .feature-item i {
+      font-size: 2.2rem;
+      color: #c44536;
+      background: rgba(196, 69, 54, 0.06);
+      padding: 16px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .feature-item h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #2d2a24;
+    }
+    .feature-item p {
+      color: #6b6256;
+      font-size: 0.9rem;
+    }
+
+    /* ===== TESTIMONI ===== */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .testi-card {
+      background: white;
+      padding: 32px 28px;
+      border-radius: 28px;
+      border: 1px solid rgba(0, 0, 0, 0.02);
+      transition: all 0.3s ease;
+    }
+    .testi-card:hover {
+      border-color: rgba(196, 69, 54, 0.06);
+      transform: translateY(-4px);
+    }
+
+    .testi-card .stars {
+      color: #e8b84b;
+      letter-spacing: 2px;
+      font-size: 1rem;
+    }
+
+    .testi-card blockquote {
+      font-size: 1rem;
+      color: #4a433a;
+      margin: 16px 0;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .testi-card .user {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .testi-card .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 60px;
+      background: #ede8e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #4a433a;
+      font-size: 1.1rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .testi-card .user-info strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #2d2a24;
+    }
+    .testi-card .user-info span {
+      font-size: 0.8rem;
+      color: #7a7064;
+    }
+
+    /* ===== FORM KONTAK ===== */
+    .form-section {
+      background: #2d2a24;
+      border-radius: 48px;
+      padding: 64px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-section::before {
+      content: '✦';
+      position: absolute;
+      right: 5%;
+      bottom: 8%;
+      font-size: 8rem;
+      color: rgba(255, 255, 255, 0.02);
+      transform: rotate(8deg);
+      pointer-events: none;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-text h2 {
+      font-family: 'Outfit', sans-serif;
+      color: white;
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+    .form-text p {
+      color: rgba(255, 255, 255, 0.6);
+      margin: 16px 0 24px;
+      font-size: 1.05rem;
+    }
+
+    .form-text .info-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(255, 255, 255, 0.75);
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .form-text .info-item i {
+      color: #d96c4a;
+      width: 24px;
+      font-size: 1.2rem;
+    }
+    .form-text .info-item strong {
+      color: white;
+      font-weight: 600;
+    }
+
+    .form-wrapper {
+      background: white;
+      border-radius: 32px;
+      padding: 40px 36px;
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.12);
+    }
+
+    .form-wrapper h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #2d2a24;
+    }
+    .form-wrapper h3 i {
+      color: #c44536;
+      margin-right: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #4a433a;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid #e8e2d9;
+      border-radius: 18px;
+      font-size: 0.95rem;
+      font-family: 'Quicksand', sans-serif;
+      transition: all 0.3s ease;
+      background: #fdfcfa;
+      color: #2d2a24;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #c44536;
+      box-shadow: 0 0 0 4px rgba(196, 69, 54, 0.06);
+      background: white;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7064' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 18px center;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-wrapper .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 16px;
+      font-size: 1rem;
+      margin-top: 8px;
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: #7a7064;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: #2d2a24;
+      border-radius: 48px;
+      padding: 64px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '✦';
+      position: absolute;
+      left: 4%;
+      top: 10%;
+      font-size: 4rem;
+      color: rgba(255, 255, 255, 0.02);
+      transform: rotate(-6deg);
+      pointer-events: none;
+    }
+
+    .cta-text h2 {
+      font-family: 'Outfit', sans-serif;
+      color: white;
+      font-size: 2.4rem;
+      font-weight: 800;
+    }
+    .cta-text p {
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 8px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons .btn {
+      background: white;
+      color: #2d2a24;
+      border: none;
+    }
+    .cta-buttons .btn:hover {
+      background: #c44536;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .cta-buttons .btn-outline-cta {
+      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      color: white;
+    }
+    .cta-buttons .btn-outline-cta:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 48px 0 32px;
+      border-top: 1px solid rgba(0, 0, 0, 0.03);
+      margin-top: 40px;
+    }
+
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer .logo {
+      font-size: 1.2rem;
+    }
+
+    .footer .social a {
+      color: #6b6256;
+      font-size: 1.4rem;
+      margin-left: 20px;
+      transition: color 0.2s;
+    }
+    .footer .social a:hover {
+      color: #c44536;
+    }
+
+    .footer small {
+      color: #7a7064;
+      font-size: 0.85rem;
+    }
+
+    /* ===== NOTIFIKASI ===== */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #2d2a24;
+      color: white;
+      padding: 18px 28px;
+      border-radius: 24px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transform: translateY(120px);
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 999;
+      max-width: 420px;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast i {
+      font-size: 1.8rem;
+      color: #25D366;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .hero-stats {
+        justify-content: center;
+      }
+      .hero-card {
+        margin: 0 auto;
+      }
+      .package-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .testi-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .form-section {
+        padding: 40px 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+      .nav.open {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 24px;
+        border-bottom: 1px solid #f0ebe4;
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.02);
+      }
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding: 48px 0 64px;
+      }
+      .hero-text h1 {
+        font-size: 2.6rem;
+      }
+      .hero-stats {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .package-grid {
+        grid-template-columns: 1fr;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .testi-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-section {
+        padding: 40px 24px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .section-header h2 {
+        font-size: 2.2rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .form-section {
+        padding: 28px 16px;
+        border-radius: 32px;
+      }
+      .form-wrapper {
+        padding: 28px 20px;
+      }
+
+      .toast {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        max-width: none;
+        padding: 16px 20px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* ===== ANIMASI ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 {
+      transition-delay: 0.1s;
+    }
+    .delay-2 {
+      transition-delay: 0.2s;
+    }
+    .delay-3 {
+      transition-delay: 0.3s;
+    }
+    .delay-4 {
+      transition-delay: 0.4s;
+    }
+
+    /* extra organic touch */
+    .accent-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #c44536;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Ganti link di bawah ini dengan URL Apps Script kamu -->
-    <iframe src="https://script.google.com/macros/s/AKfycbxGU0ieqx5tYg5ZYD9OPmdfvpsIe8sJ6N5kNhTS0smX2fr9ypf0ttQ_pN9DaDUoui_B/exec"></iframe>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">
+        <i class="fas fa-signal"></i>
+        <span>Salara Net</span>
+      </a>
+
+      <nav class="nav" id="mainNav">
+        <a href="#paket">Paket</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#testimoni">Testimoni</a>
+        <a href="#kontak" class="btn btn-primary btn-sm">Hubungi</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <h1>Internet <span class="highlight">kencang</span> buat <br />rumah &amp; usaha</h1>
+        <p>Salara Net hadir buat kamu yang butuh koneksi stabil, harga masuk akal, dan teknisi yang ramah. Dikelola oleh anak lokal, buat tetangga sendiri.</p>
+        <div class="hero-buttons">
+          <a href="#paket" class="btn btn-primary">Cek Paket <i class="fas fa-arrow-right"></i></a>
+          <a href="#kontak" class="btn btn-outline">Tanya-tanya dulu</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="number">100+</div>
+            <div class="label">Pelanggan aktif</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">99,8%</div>
+            <div class="label">Uptime</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">4.8</div>
+            <div class="label">Rating kepuasan</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-weight:600; font-size:0.85rem; color:#c44536;">✨ Paket rumahan</span>
+            <span style="background:#f5f0ea; padding:4px 14px; border-radius:40px; font-size:0.7rem; font-weight:700; color:#4a433a; letter-spacing:0.5px;">promo</span>
+          </div>
+          <div class="price-big">Rp150.000 <small>/bulan</small></div>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> 10 Mbps stabil</li>
+            <li><i class="fas fa-check-circle"></i> Tanpa batasan kuota</li>
+            <li><i class="fas fa-check-circle"></i> Instalasi gratis</li>
+          </ul>
+          <a href="#kontak" class="btn btn-accent" style="width:100%; justify-content:center;">Daftar sekarang</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAKET ===== -->
+  <section class="section" id="paket">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Pilih paket yang pas</h2>
+        <p>Semua paket sudah termasuk perangkat WiFi dan instalasi. Gak ada biaya tersembunyi.</p>
+      </div>
+
+      <div class="package-grid">
+        <div class="package-card fade-up delay-1">
+          <div class="icon"><i class="fas fa-home"></i></div>
+          <h3>Rumahan</h3>
+          <div class="price">Rp150k <small>/ bln</small></div>
+          <p class="desc">Cocok buat browsing, nonton YouTube, dan kerja dari rumah.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> 10 Mbps</li>
+            <li><i class="fas fa-check"></i> Bebas FUP</li>
+            <li><i class="fas fa-check"></i> Dukungan 24/7</li>
+          </ul>
+          <a href="#kontak" class="btn btn-outline">Pilih paket</a>
+        </div>
+
+        <div class="package-card popular fade-up delay-2">
+          <span class="badge">Terlaris</span>
+          <div class="icon"><i class="fas fa-users"></i></div>
+          <h3>Keluarga</h3>
+          <div class="price">Rp275k <small>/ bln</small></div>
+          <p class="desc">Buat keluarga dengan banyak gadget dan aktivitas online.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> 25 Mbps</li>
+            <li><i class="fas fa-check"></i> 5+ perangkat</li>
+            <li><i class="fas fa-check"></i> Prioritas support</li>
+          </ul>
+          <a href="#kontak" class="btn btn-primary">Pilih paket</a>
+        </div>
+
+        <div class="package-card fade-up delay-3">
+          <div class="icon"><i class="fas fa-store"></i></div>
+          <h3>Bisnis</h3>
+          <div class="price">Rp450k <small>/ bln</small></div>
+          <p class="desc">Solusi buat usaha, kantor, atau layanan publik.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> 50 Mbps</li>
+            <li><i class="fas fa-check"></i> IP publik</li>
+            <li><i class="fas fa-check"></i> SLA 99.9%</li>
+          </ul>
+          <a href="#kontak" class="btn btn-outline">Pilih paket</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LAYANAN / FITUR ===== -->
+  <section class="section" id="layanan" style="background:#faf7f2;">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Kenapa mesti Salara Net?</h2>
+        <p>Kami gak cuma jual internet, tapi juga ketenangan.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-item fade-up delay-1">
+          <i class="fas fa-bolt"></i>
+          <h4>Koneksi stabil</h4>
+          <p>Pakai fiber optic dengan cadangan jaringan, jarang putus.</p>
+        </div>
+        <div class="feature-item fade-up delay-2">
+          <i class="fas fa-headset"></i>
+          <h4>Dukungan lokal</h4>
+          <p>Teknisi dari lingkungan sekitar, siap datang kapan pun.</p>
+        </div>
+        <div class="feature-item fade-up delay-3">
+          <i class="fas fa-credit-card"></i>
+          <h4>Harga transparan</h4>
+          <p>Gak ada biaya dadakan. Tagihan jelas, gak bikin pusing.</p>
+        </div>
+        <div class="feature-item fade-up delay-4">
+          <i class="fas fa-shield-alt"></i>
+          <h4>Aman &amp; terawat</h4>
+          <p>Perlindungan dasar buat perangkat kamu dari ancaman umum.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONI ===== -->
+  <section class="section" id="testimoni">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Kata tetangga</h2>
+        <p>Yang udah pakai Salara Net ceritanya gini.</p>
+      </div>
+
+      <div class="testi-grid">
+        <div class="testi-card fade-up delay-1">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <blockquote>“Saya bisa WFH tanpa khawatir koneksi putus. Teknisi-nya cepat tanggap, ramah pula.”</blockquote>
+          <div class="user">
+            <div class="avatar">A</div>
+            <div class="user-info">
+              <strong>Andi Saputra</strong>
+              <span>RT 02, Salara</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card fade-up delay-2">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <blockquote>“Anak-anak sekolah online lancar, saya juga bisa streaming film tanpa buffering. Harga terjangkau!”</blockquote>
+          <div class="user">
+            <div class="avatar">R</div>
+            <div class="user-info">
+              <strong>Rina Wati</strong>
+              <span>RW 05, Salara</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card fade-up delay-3">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <blockquote>“Salara Net bantu usaha warung saya jadi lebih ramai karena bisa pasang WiFi buat pelanggan.”</blockquote>
+          <div class="user">
+            <div class="avatar">B</div>
+            <div class="user-info">
+              <strong>Budi Hartono</strong>
+              <span>Pemilik Warung</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FORM KONTAK ===== -->
+  <section class="section" id="kontak" style="padding-top:0;">
+    <div class="container">
+      <div class="form-section fade-up">
+        <div class="form-grid">
+          <div class="form-text">
+            <h2>Hubungi kami aja</h2>
+            <p>Isi form di samping atau chat langsung via WhatsApp. Tim kami siap bantu pilih paket yang paling cocok.</p>
+
+            <div class="info-item">
+              <i class="fas fa-phone-alt"></i>
+              <span><strong>WhatsApp</strong><br />0851-7111-0189</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <span><strong>Jam layanan</strong><br />Senin–Minggu, 08.00 – 21.00</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span><strong>Lokasi</strong><br />Salara, RT/RW Net Area</span>
+            </div>
+
+            <a href="https://wa.me/6285171110189" target="_blank" class="btn btn-wa" style="margin-top:16px;">
+              <i class="fab fa-whatsapp"></i> Chat langsung
+            </a>
+          </div>
+
+          <div class="form-wrapper">
+            <h3><i class="fas fa-pen"></i>Form daftar</h3>
+            <form id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fullName">Nama lengkap</label>
+                  <input type="text" id="fullName" placeholder="Misal: Ahmad Fauzi" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Nomor WhatsApp</label>
+                  <input type="tel" id="phone" placeholder="0812-3456-7890" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="package">Paket yang diminati</label>
+                <select id="package">
+                  <option value="Rumahan (10 Mbps)">Rumahan (10 Mbps) - Rp150k</option>
+                  <option value="Keluarga (25 Mbps)" selected>Keluarga (25 Mbps) - Rp275k</option>
+                  <option value="Bisnis (50 Mbps)">Bisnis (50 Mbps) - Rp450k</option>
+                  <option value="Konsultasi dulu">Saya mau konsultasi dulu</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="address">Alamat / RT RW</label>
+                <input type="text" id="address" placeholder="Contoh: RT 02 RW 05, Salara" />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Pesan tambahan (opsional)</label>
+                <textarea id="message" placeholder="Tulis kebutuhan atau pertanyaan kamu..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-accent">
+                <i class="fab fa-whatsapp"></i> Kirim via WhatsApp
+              </button>
+            </form>
+            <p class="form-note">Dengan mengirim, kamu akan diarahkan ke WhatsApp kami. Data dikirim aman.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="cta-section">
+        <div class="cta-text">
+          <h2>Yuk, pasang sekarang!</h2>
+          <p>Dapatkan koneksi stabil tanpa ribet. Promo instalasi gratis terbatas.</p>
+        </div>
+        <div class="cta-buttons">
+          <a href="#kontak" class="btn">Hubungi kami</a>
+          <a href="https://wa.me/6285171110189" target="_blank" class="btn btn-outline-cta"><i class="fab fa-whatsapp"></i> Chat via WA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="logo">
+        <i class="fas fa-signal"></i>
+        <span>Salara Net</span>
+      </div>
+      <div class="social">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <small>&copy; 2026 Salara Net · ISP RT/RW Net</small>
+    </div>
+  </footer>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div class="toast" id="toast">
+    <i class="fab fa-whatsapp"></i>
+    <span>Terima kasih! Kamu akan diarahkan ke WhatsApp.</span>
+  </div>
+
+  <!-- ===== SCRIPT ===== -->
+  <script>
+    (function() {
+      const WA_NUMBER = '6285171110189';
+
+      // === Mobile menu toggle ===
+      const toggle = document.getElementById('menuToggle');
+      const nav = document.getElementById('mainNav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          nav.classList.toggle('open');
+          const icon = toggle.querySelector('i');
+          if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+          }
+        });
+
+        document.addEventListener('click', function(e) {
+          if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+            nav.classList.remove('open');
+            const icon = toggle.querySelector('i');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-xmark');
+            }
+          }
+        });
+      }
+
+      // === Intersection Observer untuk fade-up ===
+      const fadeEls = document.querySelectorAll('.fade-up');
+      if (fadeEls.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        fadeEls.forEach(el => observer.observe(el));
+
+        setTimeout(() => {
+          fadeEls.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8) {
+              el.classList.add('visible');
+            }
+          });
+        }, 100);
+      }
+
+      // === Toast notification ===
+      function showToast(message) {
+        const toast = document.getElementById('toast');
+        if (!toast) return;
+        const span = toast.querySelector('span');
+        if (span) span.textContent = message || 'Terima kasih! Kamu akan diarahkan ke WhatsApp.';
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 5000);
+      }
+
+      // === Form submission → WhatsApp ===
+      const form = document.getElementById('contactForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          const name = document.getElementById('fullName').value.trim();
+          const phone = document.getElementById('phone').value.trim();
+          const packageSelected = document.getElementById('package').value;
+          const address = document.getElementById('address').value.trim();
+          const message = document.getElementById('message').value.trim();
+
+          if (!name) {
+            alert('Yuk, isi nama lengkap kamu dulu.');
+            return;
+          }
+          if (!phone) {
+            alert('Mohon isi nomor WhatsApp kamu.');
+            return;
+          }
+
+          let waMessage = 'Halo Salara Net! Saya mau daftar internet.%0A%0A';
+          waMessage += '*Nama:* ' + name + '%0A';
+          waMessage += '*WhatsApp:* ' + phone + '%0A';
+          waMessage += '*Paket:* ' + packageSelected + '%0A';
+          if (address) waMessage += '*Alamat:* ' + address + '%0A';
+          if (message) waMessage += '*Pesan:* ' + message + '%0A%0A';
+          waMessage += 'Mohon info selanjutnya, makasih.';
+
+          const waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + waMessage;
+          window.open(waUrl, '_blank');
+
+          showToast('✅ Form terkirim! Membuka WhatsApp...');
+          form.reset();
+        });
+      }
+
+      // === Tombol "Daftar sekarang" di hero card ===
+      const daftarBtn = document.querySelector('.hero-card .btn-accent');
+      if (daftarBtn) {
+        daftarBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('kontak').scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+
+      console.log('✅ Salara Net · Form terintegrasi WhatsApp ' + WA_NUMBER);
+    })();
+  </script>
+
 </body>
 </html>
